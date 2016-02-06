@@ -1,0 +1,29 @@
+I already have a basic prototype for these two, and obviously we don't need to prioritize features like this
+-----------------------------------------------------------------------------------------------------------------------
+GameController - Empty prefab with GameController.cs (One persistent instance throughout scenes)
+	+ Holds crucial game information for saving and loading game data, quitting, etc.
+	+ PlayerSerializable class for player data
+	+ EnemySerializable class for enemy data
+	+ GameSerializable class for general game data
+
+MenuController - Empty prefab with MainMenuController.cs and PauseController.cs (One persistent instance throughout scenes)
+	+ Scripts that run the main menu and in-scene pause menu
+	+ Pause Menu is a canvas prefab whose buttons are linked to functions in PauseController
+------------------------------------------------------------------------------------------------------------------------
+
+For gameplay script and object organization:
+	+ PlayerController.cs
+		+ Handles movement, jumping, attacking, losing health, etc.
+	+ EnemyController.cs
+	+ HUD Canvas Object
+		-Score, health, lives, etc.
+	+ EventController.cs (maybe- could be part of other scripts)
+		- For coordinating door openings, moving platforms, falling objects, etc.
+
+General Ideas:
+	+ If player dies and still has lives, respawns (either as self or new employee) after x seconds. Otherwise, play game over animation and ask to replay.
+	+ If player wins, play win animation and sound clips
+	+ Enemies could maybe "patrol" or just walk about. Some could detect and follow player, others could walk aimelessly (easier enemies)
+	+ Certain box collider triggers could open doors, move platforms, launch player, drop objects, etc.
+	+ Weird or crazy objects, scenery, enemies, etc. to make game more interesting or fun
+	+ Progress bar/animation to show progress to end or for transitions between scenes
