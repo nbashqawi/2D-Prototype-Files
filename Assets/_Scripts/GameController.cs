@@ -14,6 +14,8 @@ using UnityEditor;
 public class GameController : MonoBehaviour {
 
 	private static GameController controller;
+	public Slider healthSlider;
+	public Animator HUDAnimator;
 
 	// Make sure there is only one instance of this class
 	void Awake () {
@@ -53,6 +55,15 @@ public class GameController : MonoBehaviour {
 		#else
 			Application.Quit();
 		#endif
+	}
+
+	// Show the given health in the health bar
+	public void ShowHealth(int value) {
+		healthSlider.value = value;
+	}
+
+	public void GameOver() {
+		HUDAnimator.SetTrigger ("GameOver");
 	}
 }
 

@@ -10,8 +10,9 @@ public class PlayerController : MonoBehaviour {
 
 	// Motion related variables
 	public float max_Speed = 10f;    // Max player velocity
-	public float jump_Force = 400f;  // Force for player jumping
+	public float jump_Force = 500f;  // Force for player jumping
 	public LayerMask groundLayer;    // Mask describing what layers to check for as ground
+	public Transform groundCheck;
 	private bool onGround;           // Is the player on the ground?
 	private bool facingRight;        // Is the player facing right?
 
@@ -20,11 +21,15 @@ public class PlayerController : MonoBehaviour {
 
 	// Physics related variables, such as ground and ceiling checks
 	private Rigidbody2D player_RB;
-	private Transform groundCheck;
 	private float groundRadius = 0.2f;
 	private Transform ceilingCheck;
 	private float ceilingRadius = 0.01f;
 
+	public float hitDelay = 0.8f; // Delay between two hits;
+	public int hitPower = 10;
+	private float hitTimer = 0f;
+	public int maxHealth = 100;
+	private int health;
 	private int score; // Player's current score
 	public Text scoreText; // Link to HUD ScoreText UI element
 	public Text animText; // Link to AnimationText UI element in canvas attached to player
@@ -33,9 +38,10 @@ public class PlayerController : MonoBehaviour {
 	// Initialize important variables such as rigidBody and ground and ceiling checks
 	void Awake () {
 		score = 0;
+		health = maxHealth;
 		facingRight = true;
 		player_RB = GetComponent<Rigidbody2D> ();
-		groundCheck = transform.Find ("GroundCheck");
+		//groundCheck = transform.Find ("GroundCheck");
 		ceilingCheck = transform.Find ("CeilingCheck");
 	}
 	
@@ -61,6 +67,9 @@ public class PlayerController : MonoBehaviour {
 
 		Move (h, jump);
 		jump = false;
+
+		// update the hit timer
+		hitTimer += Time.deltaTime;
 	}
 		
 	// Move the player in move direction and scale (if using controller) and a a bool if player is jumping or not
@@ -106,5 +115,45 @@ public class PlayerController : MonoBehaviour {
 			animText.text = amount + "pts";
 			scoreAnim.SetTrigger ("Play");
 		}
+	}
+
+	void OnCollisionEnter2D(Collision2D coll) {
+		if (coll.gameObject.CompareTag ("Enemy")) {
+			if (hitTimer > hitDelay) {
+				TakeHit ();
+			}
+		}
+	}
+	void OnCollisionStay2D(Collision2D coll) {
+		if (coll.gameObject.CompareTag ("Enemy")) {
+			if (hitTimer > hitDelay) {
+				TakeHit ();
+			}
+		}
+	}
+
+	void TakeHit() {
+		hitTimer = 0f;
+		health -= hitPower;
+
+		GameController gc = GameController.GetController ();
+
+
+		gc.ShowHealth (health);
+
+		if (health <= 0) {
+			gc.GameOver ();
+		}
+	}
+
+	void OnDrawGizmos(){
+		Gizmos.color = Color.red;
+
+		var pos = groundCheck.position;
+		//pos.x += transform.position.x;
+		//pos.y += transform.position.y;
+
+		Gizmos.DrawWireSphere (pos, groundRadius);
+
 	}
 }
