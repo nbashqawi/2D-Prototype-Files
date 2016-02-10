@@ -1,0 +1,54 @@
+=================
+Current Setup
+=================
+
+_Animation
+	game_over_animation --- Fades in game over panel
+	points_item_animation --- Point value rise and fade above player
+	win_animation --- Fades in win panel
+	zombie_walk --- Zombie walking animation
+
+_Audio
+	All music and sound effect files
+	Audio mixer with music group and sound effects group
+
+_Effects
+	Empty for now
+
+_Materials
+	Slippery_Dippery --- frictionless Physics2D material
+
+_Prefabs
+	Diamond --- sprite for PointsItem prefab
+	PointsItem --- Prefab for collectible item to give points
+	GameController
+	MenuController
+	Pause Menu Panel
+	Pause Menu --- Follow notes mentioned before for these last four
+	[Need to add:]
+	Player
+	Zombie Runner --- I'll probably get the zombie ones Wednesday night
+	Zombie Jumper
+
+_scenes
+	main_menu
+	scene01 --- Really dumb test scene
+
+_scripts
+	All are commented, message me if you have any problems
+	Check all public variables in inspector to make sure they are connected
+	Comments should help with what to connect.
+
+	Main Camera should be connected to MapStart, MapTop, and Player
+	Player connects to ScoreText in HUD Canvas, PointsText in player's canvas and ScoreAnimations component of player's canvas
+	BackgroundMusic should be playing clip called void
+	Zombie_1_right should have slippery material on its square collider and be playing Zombie_03 sound clip
+	Edges of all platforms have small, slippery square colliders with Edge tag
+
+_sprites
+	All games sprites I have so far
+
+Grunge pack
+	Various fonts used in HUD UI
+
+The rest are assets I downloaded that have may some potential for use

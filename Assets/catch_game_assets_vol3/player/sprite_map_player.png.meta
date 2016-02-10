@@ -1,0 +1,479 @@
+fileFormatVersion: 2
+guid: 68aa1cc4d92014c3a9abe987f7b63fd7
+timeCreated: 1455041272
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: sprite_map_player_0
+    21300002: sprite_map_player_1
+    21300004: sprite_map_player_2
+    21300006: sprite_map_player_3
+    21300008: sprite_map_player_4
+    21300010: sprite_map_player_5
+    21300012: sprite_map_player_6
+    21300014: sprite_map_player_7
+    21300016: sprite_map_player_8
+    21300018: sprite_map_player_9
+    21300020: sprite_map_player_10
+    21300022: sprite_map_player_11
+    21300024: sprite_map_player_12
+    21300026: sprite_map_player_13
+    21300028: sprite_map_player_14
+    21300030: sprite_map_player_15
+    21300032: sprite_map_player_16
+    21300034: sprite_map_player_17
+    21300036: sprite_map_player_18
+    21300038: sprite_map_player_19
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: sprite_map_player_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 1125
+        width: 169
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 29.248886, y: 66.53699}
+        - {x: -24.751114, y: 66.53699}
+        - {x: -48.751114, y: 59.536987}
+        - {x: -64.751114, y: 48.536987}
+        - {x: -64.751114, y: -41.463013}
+        - {x: -56.751114, y: -65.46301}
+        - {x: 35.248886, y: -65.46301}
+        - {x: 66.248886, y: -39.463013}
+        - {x: 66.248886, y: 39.536987}
+        - {x: 65.248886, y: 41.536987}
+    - name: sprite_map_player_1
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 1123
+        width: 177
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35.351288, y: 66.50006}
+        - {x: -68.35129, y: 50.50006}
+        - {x: -68.35129, y: -33.49994}
+        - {x: -30.351288, y: -66.49994}
+        - {x: 41.648712, y: -66.49994}
+        - {x: 68.64871, y: -30.499939}
+        - {x: 68.64871, y: 46.50006}
+        - {x: 46.648712, y: 66.50006}
+    - name: sprite_map_player_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1125
+        width: 171
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31.60907, y: 66.53699}
+        - {x: -59.60907, y: 62.536987}
+        - {x: -65.60907, y: 49.536987}
+        - {x: -65.60907, y: -50.463013}
+        - {x: -40.60907, y: -65.46301}
+        - {x: 62.39093, y: -65.46301}
+        - {x: 66.39093, y: -62.463013}
+        - {x: 66.39093, y: 54.536987}
+        - {x: 41.39093, y: 66.53699}
+    - name: sprite_map_player_3
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 1139
+        width: 120
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -33.72882, y: 55.795654}
+        - {x: -45.72882, y: 52.795654}
+        - {x: -45.72882, y: -55.204346}
+        - {x: 47.27118, y: -55.204346}
+        - {x: 47.27118, y: 51.795654}
+        - {x: 41.27118, y: 55.795654}
+    - name: sprite_map_player_4
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 228
+        width: 123
+        height: 1030
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32.144226, y: 111.21283}
+        - {x: -39.144226, y: 396.21283}
+        - {x: -47.144226, y: 396.21283}
+        - {x: -47.144226, y: -395.78717}
+        - {x: -29.144226, y: -395.78717}
+        - {x: 48.855774, y: -245.78717}
+        - {x: 48.855774, y: 110.21283}
+        - {x: 46.855774, y: 111.21283}
+        - {x: -4.144226, y: 141.21283}
+        - {x: -18.144226, y: 128.21283}
+    - name: sprite_map_player_5
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 913
+        width: 182
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1.0663376, y: -9.380188}
+        - {x: -1.0663376, y: -25.380188}
+        - {x: -0.066337585, y: -31.380188}
+        - {x: 1.9336624, y: -48.380188}
+        - {x: 8.933662, y: -55.380188}
+        - {x: 13.933662, y: -58.380188}
+        - {x: 45.933662, y: -58.380188}
+        - {x: 70.93366, y: -46.380188}
+        - {x: 70.93366, y: 31.619812}
+        - {x: 65.93366, y: 59.619812}
+        - {x: -62.066338, y: 59.619812}
+        - {x: -70.06634, y: 21.619812}
+        - {x: -70.06634, y: -49.380188}
+        - {x: -48.066338, y: -58.380188}
+        - {x: -9.066338, y: -58.380188}
+        - {x: -3.0663376, y: -50.380188}
+        - {x: -0.066337585, y: -37.380188}
+        - {x: -1.0663376, y: -30.380188}
+    - name: sprite_map_player_6
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 913
+        width: 176
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 53.341064, y: 56.119812}
+        - {x: -65.658936, y: 56.119812}
+        - {x: -67.658936, y: 48.119812}
+        - {x: -67.658936, y: -54.880188}
+        - {x: 62.341064, y: -54.880188}
+        - {x: 65.341064, y: -52.880188}
+        - {x: 68.341064, y: -45.880188}
+        - {x: 68.341064, y: 49.119812}
+    - name: sprite_map_player_7
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 913
+        width: 203
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -49.808075, y: 61.119812}
+        - {x: -64.808075, y: 56.119812}
+        - {x: -77.808075, y: 22.119812}
+        - {x: -77.808075, y: -59.880188}
+        - {x: 79.191925, y: -59.880188}
+        - {x: 79.191925, y: 7.119812}
+        - {x: 56.191925, y: 61.119812}
+    - name: sprite_map_player_8
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 867
+        width: 167
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -46.835693, y: 91.76984}
+        - {x: -63.835693, y: 42.769836}
+        - {x: -63.835693, y: -41.230164}
+        - {x: -25.835693, y: -91.23016}
+        - {x: 50.164307, y: -91.23016}
+        - {x: 65.16431, y: -46.230164}
+        - {x: 65.16431, y: 65.76984}
+        - {x: 38.164307, y: 91.76984}
+    - name: sprite_map_player_9
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 710
+        width: 177
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -66.22395, y: 60.118896}
+        - {x: -68.22395, y: 54.118896}
+        - {x: -68.22395, y: -41.881104}
+        - {x: -51.223953, y: -58.881104}
+        - {x: 48.776047, y: -58.881104}
+        - {x: 68.77605, y: -43.881104}
+        - {x: 68.77605, y: 22.118896}
+        - {x: 60.776047, y: 60.118896}
+    - name: sprite_map_player_10
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 708
+        width: 179
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -53.70569, y: 57.08197}
+        - {x: -68.70569, y: 41.08197}
+        - {x: -68.70569, y: -56.91803}
+        - {x: 70.29431, y: -56.91803}
+        - {x: 70.29431, y: 48.08197}
+        - {x: 59.29431, y: 57.08197}
+    - name: sprite_map_player_11
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 710
+        width: 203
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -53.73419, y: 62.118896}
+        - {x: -77.73419, y: 17.118896}
+        - {x: -77.73419, y: -60.881104}
+        - {x: 79.26581, y: -60.881104}
+        - {x: 79.26581, y: 24.118896}
+        - {x: 56.26581, y: 62.118896}
+    - name: sprite_map_player_12
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 489
+        width: 181
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 62.581482, y: 45.2854}
+        - {x: 57.581482, y: 59.2854}
+        - {x: 48.581482, y: 61.2854}
+        - {x: 14.581482, y: 61.2854}
+        - {x: 11.581482, y: 60.2854}
+        - {x: 6.581482, y: 61.2854}
+        - {x: -52.418518, y: 61.2854}
+        - {x: -69.41852, y: 41.2854}
+        - {x: -69.41852, y: -42.7146}
+        - {x: -45.418518, y: -59.7146}
+        - {x: 49.581482, y: -59.7146}
+        - {x: 70.58148, y: -41.7146}
+        - {x: 70.58148, y: 5.2854004}
+        - {x: 66.58148, y: 29.2854}
+    - name: sprite_map_player_13
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 489
+        width: 179
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -66.70569, y: 57.7854}
+        - {x: -68.70569, y: 41.7854}
+        - {x: -68.70569, y: -56.2146}
+        - {x: 60.29431, y: -56.2146}
+        - {x: 70.29431, y: -47.2146}
+        - {x: 70.29431, y: 37.7854}
+        - {x: 69.29431, y: 57.7854}
+    - name: sprite_map_player_14
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 490
+        width: 203
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -73.502655, y: 62.553894}
+        - {x: -77.502655, y: 30.553894}
+        - {x: -77.502655, y: -61.446106}
+        - {x: 79.497345, y: -61.446106}
+        - {x: 79.497345, y: 14.553894}
+        - {x: 74.497345, y: 30.553894}
+        - {x: 63.497345, y: 62.553894}
+    - name: sprite_map_player_15
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 384
+        width: 181
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8.90564, y: 103.095276}
+        - {x: -49.09436, y: 103.095276}
+        - {x: -69.09436, y: 73.095276}
+        - {x: -69.09436, y: -33.904724}
+        - {x: -24.09436, y: -102.904724}
+        - {x: 48.90564, y: -102.904724}
+        - {x: 70.90564, y: -43.904724}
+        - {x: 70.90564, y: 42.095276}
+        - {x: 37.90564, y: 86.095276}
+    - name: sprite_map_player_16
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 260
+        width: 178
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -68.41852, y: 60.804108}
+        - {x: -68.41852, y: -49.195892}
+        - {x: -48.418518, y: -59.195892}
+        - {x: 62.581482, y: -59.195892}
+        - {x: 69.58148, y: -54.195892}
+        - {x: 69.58148, y: 41.804108}
+        - {x: 62.581482, y: 60.804108}
+    - name: sprite_map_player_17
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 259
+        width: 179
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -68.70569, y: -52.96437}
+        - {x: -66.70569, y: -56.96437}
+        - {x: 70.29431, y: -56.96437}
+        - {x: 70.29431, y: 43.03563}
+        - {x: 67.29431, y: 55.03563}
+        - {x: 62.29431, y: 57.03563}
+        - {x: -53.70569, y: 57.03563}
+        - {x: -68.70569, y: 47.03563}
+    - name: sprite_map_player_18
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 260
+        width: 201
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2.997345, y: -47.695892}
+        - {x: 19.997345, y: -60.695892}
+        - {x: 66.997345, y: -60.695892}
+        - {x: 78.997345, y: -49.695892}
+        - {x: 78.997345, y: 13.304108}
+        - {x: 51.997345, y: 62.304108}
+        - {x: -53.002655, y: 62.304108}
+        - {x: -77.002655, y: 2.3041077}
+        - {x: -77.002655, y: -47.695892}
+        - {x: -70.002655, y: -52.695892}
+        - {x: -48.002655, y: -60.695892}
+        - {x: -17.002655, y: -60.695892}
+        - {x: -8.002655, y: -53.695892}
+        - {x: -4.002655, y: -44.695892}
+        - {x: -0.0026550293, y: -24.695892}
+    - name: sprite_map_player_19
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 25
+        width: 338
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 123.461716, y: 64.71193}
+        - {x: 100.461716, y: 64.71193}
+        - {x: 95.461716, y: 59.71193}
+        - {x: -67.538284, y: 64.71193}
+        - {x: -120.538284, y: 64.71193}
+        - {x: -129.53828, y: 28.71193}
+        - {x: -129.53828, y: -12.288071}
+        - {x: -107.538284, y: -64.28807}
+        - {x: 117.461716, y: -64.28807}
+        - {x: 131.46172, y: -15.288071}
+        - {x: 131.46172, y: 31.71193}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

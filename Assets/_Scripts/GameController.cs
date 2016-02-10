@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System;
@@ -10,7 +11,6 @@ using UnityEditor;
 
 // Controls basic game functions and data
 // Place in every scene
-
 public class GameController : MonoBehaviour {
 
 	private static GameController controller;
@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour {
 	public void Load () {
 
 	}
-
+		
 	// If in editor, exit play mode, otherwise quit the application
 	public void Quit () {
 		#if UNITY_EDITOR

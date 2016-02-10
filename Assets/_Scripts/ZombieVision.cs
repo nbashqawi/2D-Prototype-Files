@@ -17,7 +17,8 @@ public class ZombieVision : MonoBehaviour {
 
 	// Check if player can be seen
 	void OnTriggerEnter2D (Collider2D other) {
-		if (other.gameObject.CompareTag ("Player"))
-			Debug.Log ("Hooray!");
+		if (other.gameObject.CompareTag ("Player")) {
+		}
+			//Debug.Log ("Hooray!");
 	}
 }

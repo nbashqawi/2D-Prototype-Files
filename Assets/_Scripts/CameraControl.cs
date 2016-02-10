@@ -17,7 +17,7 @@ public class CameraControl : MonoBehaviour {
 	// Set camera initial position, speed, and other initialization
 	void Awake () {
 		cameraT = GetComponent<Transform> ();
-		cameraT.position = new Vector3(cameraT.position.x, playerC.transform.position.y, cameraT.position.z);
+		cameraT.position = new Vector3(playerC.transform.position.x, playerC.transform.position.y, cameraT.position.z);
 		main = Camera.main;
 		minx = mapStart.position.x;
 		speedX = 10.0f;

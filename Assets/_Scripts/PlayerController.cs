@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 // Much of this code was based on Unity Live tutorial, which can also be found in PlatformerCharacter2D.cs
@@ -24,8 +25,14 @@ public class PlayerController : MonoBehaviour {
 	private Transform ceilingCheck;
 	private float ceilingRadius = 0.01f;
 
+	private int score; // Player's current score
+	public Text scoreText; // Link to HUD ScoreText UI element
+	public Text animText; // Link to AnimationText UI element in canvas attached to player
+	public Animator scoreAnim; // Score animator component of canvas attached to player
+
 	// Initialize important variables such as rigidBody and ground and ceiling checks
 	void Awake () {
+		score = 0;
 		facingRight = true;
 		player_RB = GetComponent<Rigidbody2D> ();
 		groundCheck = transform.Find ("GroundCheck");
@@ -34,13 +41,19 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+
+	/*	if (onGround == true)
+			Debug.Log ("Ground");
+		else
+			Debug.Log ("hang time");
+    */
 		onGround = false;
 
 		h = Input.GetAxis ("Horizontal");
 		jump = Input.GetKey (KeyCode.Space);
 
 		// Check to see if player is on the ground
-		Collider2D[] colliders = Physics2D.OverlapCircleAll (groundCheck.position, groundRadius);
+		Collider2D[] colliders = Physics2D.OverlapCircleAll (groundCheck.position, groundRadius, groundLayer);
 		foreach (Collider2D col in colliders) {
 			if (col.gameObject != gameObject)
 				onGround = true;
@@ -82,5 +95,16 @@ public class PlayerController : MonoBehaviour {
 	// Get the Vector2 describing the player's velocity --- used in CameraControl.cs
 	public Vector2 getSpeed () {
 		return player_RB.velocity;
+	}
+
+	// Add amount to score and play score text animation above player if anim is true. Update ScoreText in HUD
+	public void AddScore (int amount, bool anim) {
+		score += amount;
+		scoreText.text = "Score: " + score;
+
+		if (anim) {
+			animText.text = amount + "pts";
+			scoreAnim.SetTrigger ("Play");
+		}
 	}
 }
