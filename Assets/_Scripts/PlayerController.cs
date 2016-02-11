@@ -30,14 +30,20 @@ public class PlayerController : MonoBehaviour {
 	private float hitTimer = 0f;
 	public int maxHealth = 100;
 	private int health;
-	private int score; // Player's current score
+	// private int score; // Player's current score // If more than one life, this player will get destroyed, score needs to be in game controller
 	public Text scoreText; // Link to HUD ScoreText UI element
 	public Text animText; // Link to AnimationText UI element in canvas attached to player
 	public Animator scoreAnim; // Score animator component of canvas attached to player
 
+	private Animator anim;
+
+	private Shoot shotScript;
+
 	// Initialize important variables such as rigidBody and ground and ceiling checks
 	void Awake () {
-		score = 0;
+		// score = 0;
+		anim = GetComponent<Animator>();
+		shotScript = GetComponent<Shoot>();
 		health = maxHealth;
 		facingRight = true;
 		player_RB = GetComponent<Rigidbody2D> ();
@@ -64,7 +70,7 @@ public class PlayerController : MonoBehaviour {
 			if (col.gameObject != gameObject)
 				onGround = true;
 		}
-
+		anim.SetBool ("isWalking", h != 0);
 		Move (h, jump);
 		jump = false;
 
@@ -95,7 +101,7 @@ public class PlayerController : MonoBehaviour {
 	// Flip player x scale if facing left to change sprite direction and vice versa
 	void Flip () {
 		facingRight = !facingRight;
-
+		shotScript.shotDirection.Scale (new Vector2 (-1, 0));
 		Vector3 lScale = transform.localScale;
 		lScale.x = -lScale.x;
 		transform.localScale = lScale;
@@ -106,15 +112,11 @@ public class PlayerController : MonoBehaviour {
 		return player_RB.velocity;
 	}
 
-	// Add amount to score and play score text animation above player if anim is true. Update ScoreText in HUD
-	public void AddScore (int amount, bool anim) {
-		score += amount;
-		scoreText.text = "Score: " + score;
 
-		if (anim) {
-			animText.text = amount + "pts";
-			scoreAnim.SetTrigger ("Play");
-		}
+
+	public void ScoreAnimation(int points) {
+		animText.text = points + "pts";
+		scoreAnim.SetTrigger ("Play");
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {

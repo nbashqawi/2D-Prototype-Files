@@ -9,7 +9,7 @@ public class PointsItemController : MonoBehaviour {
 	// Give player points and pass true to AddScore() to play score animation above player, then destroy the gameObject
 	void OnTriggerEnter2D (Collider2D other) {
 		if (other.gameObject.CompareTag ("Player")) {
-			other.gameObject.GetComponent<PlayerController> ().AddScore(pointsAward, true);
+			GameController.GetController().AddScore(pointsAward, true);
 			GameObject.Destroy (gameObject);
 		}
 	}

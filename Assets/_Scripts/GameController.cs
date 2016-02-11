@@ -16,6 +16,13 @@ public class GameController : MonoBehaviour {
 	private static GameController controller;
 	public Slider healthSlider;
 	public Animator HUDAnimator;
+	public Text scoreText;
+	public PlayerController player;
+	public AudioSource ghostVoices;
+
+	private int score;
+	private int enemyKillBonus = -10;
+
 
 	// Make sure there is only one instance of this class
 	void Awake () {
@@ -64,6 +71,23 @@ public class GameController : MonoBehaviour {
 
 	public void GameOver() {
 		HUDAnimator.SetTrigger ("GameOver");
+	}
+
+	public void EnemyKilled() {
+		score += enemyKillBonus;
+		ghostVoices.volume += 0.1f;
+		player.ScoreAnimation (enemyKillBonus);
+		UpdateScore ();
+	}
+
+	public void AddScore(int amount, bool anim) {
+		score += amount;
+		player.ScoreAnimation (enemyKillBonus);
+		UpdateScore ();
+	}
+
+	void UpdateScore (){
+		scoreText.text = "Score: " + score;
 	}
 }
 
