@@ -10,6 +10,8 @@ AudioMixerController:
   m_MasterGroup: {fileID: 24300001}
   m_Snapshots:
   - {fileID: 24500003}
+  - {fileID: 24508076}
+  - {fileID: 24542240}
   m_StartSnapshot: {fileID: 24500003}
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
@@ -90,6 +92,7 @@ AudioMixerGroupController:
   m_Pitch: a0a8182749e311448ba8eab4be824e97
   m_Effects:
   - {fileID: 24447132}
+  - {fileID: 24451930}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -117,6 +120,21 @@ AudioMixerEffectController:
   m_EffectName: Attenuation
   m_MixLevel: 27bda51d8a032d04fabe89ed39cf2305
   m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &24451930
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 3c07aa87fd5dc9f4888f956a148a7e5b
+  m_EffectName: Lowpass Simple
+  m_MixLevel: c1d80d0615811cf42accda1f0df2dc02
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: 1c282b7a366f92241b74e60c68ac2895
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
@@ -154,6 +172,33 @@ AudioMixerSnapshotController:
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: e6db76a15606a7445bdbb95b8f6a77d9
+  m_FloatValues:
+    3ef3cff0332ea1c4d8ec35b91df0443f: -5.7224774
+    544354bd314174c56ab2902827d7e7cd: 20
+    8d877aff0fc07e34fa8fcf5861cd9704: -4.9356413
+  m_TransitionOverrides: {}
+--- !u!245 &24508076
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Pause
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 02975aeac9bf1d7459915504d396d307
+  m_FloatValues:
+    3ef3cff0332ea1c4d8ec35b91df0443f: -28.924236
+    1c282b7a366f92241b74e60c68ac2895: 286
+    544354bd314174c56ab2902827d7e7cd: -25.086687
+    8d877aff0fc07e34fa8fcf5861cd9704: -13.0627575
+  m_TransitionOverrides: {}
+--- !u!245 &24542240
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: UnPause
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 2c5ec2ef946da944ea67b17446f7419e
   m_FloatValues:
     3ef3cff0332ea1c4d8ec35b91df0443f: -5.7224774
     544354bd314174c56ab2902827d7e7cd: 20

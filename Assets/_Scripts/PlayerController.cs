@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour {
 	private float hitTimer = 0f;
 	public int maxHealth = 100;
 	private int health;
+	float noCanDieTime;
 	// private int score; // Player's current score // If more than one life, this player will get destroyed, score needs to be in game controller
 	public Text scoreText; // Link to HUD ScoreText UI element
 	public Text animText; // Link to AnimationText UI element in canvas attached to player
@@ -59,6 +60,10 @@ public class PlayerController : MonoBehaviour {
 		else
 			Debug.Log ("hang time");
     */
+		if (noCanDieTime > 0) {
+			noCanDieTime -= Time.deltaTime;
+		}
+
 		onGround = false;
 
 		h = Input.GetAxis ("Horizontal");
@@ -121,14 +126,20 @@ public class PlayerController : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.CompareTag ("Enemy")) {
-			if (hitTimer > hitDelay) {
+			if (hitTimer > hitDelay && noCanDieTime <= 0) {
 				TakeHit ();
+			}
+		}
+		if (coll.gameObject.CompareTag ("Faller")) {
+			if (noCanDieTime <= 0) {
+				TakeHit ();
+				Destroy (coll.gameObject);
 			}
 		}
 	}
 	void OnCollisionStay2D(Collision2D coll) {
 		if (coll.gameObject.CompareTag ("Enemy")) {
-			if (hitTimer > hitDelay) {
+			if (hitTimer > hitDelay && noCanDieTime <= 0) {
 				TakeHit ();
 			}
 		}
@@ -146,6 +157,19 @@ public class PlayerController : MonoBehaviour {
 		if (health <= 0) {
 			gc.GameOver ();
 		}
+	}
+		
+	public void GainHealth (int heal) {
+		if( health + heal <= maxHealth ) {
+			health += heal;
+			GameController gc = GameController.GetController ();
+
+			gc.ShowHealth (health);
+		}
+	}
+
+	public void Invulnerability () {
+		noCanDieTime = 5.0f;
 	}
 
 	void OnDrawGizmos(){

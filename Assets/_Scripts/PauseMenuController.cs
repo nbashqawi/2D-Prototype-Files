@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,7 @@ public class PauseMenuController : MonoBehaviour {
 
 	private static PauseMenuController menuController;
 	public Canvas canvas;
+	public AudioMixerSnapshot paused, unpaused;
 
 	// Make sure there is only one instance of this class, initiate pause canvase, default canvase to disabled
 	void Awake () {
@@ -63,6 +65,15 @@ public class PauseMenuController : MonoBehaviour {
 		// LowPass ();
 	}
 
+	void LowPass () {
+		if (Time.timeScale == 0) {
+			paused.TransitionTo (0.1f);
+		} 
+
+		else {
+			unpaused.TransitionTo (0.1f);
+		}
+	}
 
 	// Save code here
 	public void Save () {

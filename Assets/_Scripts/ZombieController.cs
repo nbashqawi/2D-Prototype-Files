@@ -12,6 +12,7 @@ public class ZombieController : MonoBehaviour {
 	private float sentryPos;   // Point about which zombie marches
 	private float dir;         // Variable for direction of zombie (1 is right, -1 is left)
 	public float attackStr = 10.0f; // Attack strength for dealing damage to player --- may make a range
+	public Transform vision;
 
 	private RaycastHit2D visionHit; //RaycastHit2D of obstacle and zombie detection RayCast2D commented below
 	private bool isChasing = false; // Are we chasing the player?
@@ -22,6 +23,13 @@ public class ZombieController : MonoBehaviour {
 	Animator anim; // Animator for this zombie
 	AudioClip clip; // Sound clip for source to play
 	AudioSource source; // Holds this objects audio source
+
+	public string name;
+	public enum Drop
+	{
+		None, Health, Invulnerable
+	};
+	public Drop dropDown;
 
 	// Zombie audio clip loop variables
 	float timeToPlay;
@@ -34,7 +42,7 @@ public class ZombieController : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		zRigBod = GetComponent<Rigidbody2D> ();
 		sentryPos = transform.position.x;
-		dir = 1;
+		dir = transform.localScale.x;
 		timeSinceLastPlay = 0f;
 		timeToPlay = 3.0f;
 	}
@@ -49,16 +57,18 @@ public class ZombieController : MonoBehaviour {
 			source.Play ();
 		}
 
+
 		/*
-		 * Raycast that will be used for detecting other zombies and obstacles
-		visionHit = Physics2D.Raycast (new Vector2(transform.position.x, transform.position.y), dir*Vector2.right, 5.0f);
+		// Raycast that will be used for detecting other zombies and obstacles
+		//visionHit = Physics2D.Raycast (new Vector2(vision.position.x, vision.position.y), dir*Vector2.right, 1f, 10);
+		visionHit = Physics2D.Raycast (new Vector2(vision.position.x+1.0f, vision.position.y), transform.forward, 1f, 10);
+		//Debug.DrawRay (new Vector3(vision.position.x, vision.position.y, vision.position.z), dir*Vector3.right, Color.red);
 		if (visionHit.collider != null) {
-			//Debug.Log ("Zombie: Player Hit");
-			if (visionHit.collider.CompareTag ("Player")) {
-				//Debug.Log ("Zombie: Player Hit");
+			if (visionHit.collider.CompareTag ("Enemy") && !isChasing) {
+				Debug.Log ("Zombie: Obstacle Hit");
+				Flip ();
 			}
-		}
-		*/
+		}*/
 			
 		// If not chasing the player, just perform sentry behavior
 		if (!isChasing) {
@@ -87,6 +97,25 @@ public class ZombieController : MonoBehaviour {
 			atEdge = true;
 			zRigBod.velocity = new Vector2 (0f, 0f);
 		}
+		if ((col.collider.gameObject.CompareTag("Obstacle") || col.collider.gameObject.CompareTag("Enemy")) && !isChasing) {
+			Flip ();
+		}
+	}
+
+	public string[] DropOnDie() {
+		string power = "none";
+		switch (dropDown) {
+		case Drop.None:
+			power = "none";
+			break;
+		case Drop.Health:
+			power = "health";
+			break;
+		case Drop.Invulnerable:
+			power = "inv";
+			break;
+		}
+		return new string[] {name, power};
 	}
 
 	// Set the player to chase to p and set isChasing to true

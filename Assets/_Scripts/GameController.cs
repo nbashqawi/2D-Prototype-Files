@@ -15,8 +15,8 @@ public class GameController : MonoBehaviour {
 
 	private static GameController controller;
 	public Slider healthSlider;
-	public Animator HUDAnimator;
-	public Text scoreText;
+	public Animator HUDAnimator, IDAnimator;
+	public Text scoreText, IDName, IDPower;
 	public PlayerController player;
 	public AudioSource ghostVoices;
 
@@ -26,13 +26,13 @@ public class GameController : MonoBehaviour {
 
 	// Make sure there is only one instance of this class
 	void Awake () {
-		if (controller == null) {
-			DontDestroyOnLoad (gameObject);
+		//if (controller == null) {
+		//	DontDestroyOnLoad (gameObject);
 			controller = this;
-		}
-		else if (controller != this) {
-			Destroy (gameObject);
-		}
+	//	}
+	//	else if (controller != this) {
+	//		Destroy (gameObject);
+	//	}
 	}
 	
 	// Update is called once per frame
@@ -73,11 +73,12 @@ public class GameController : MonoBehaviour {
 		HUDAnimator.SetTrigger ("GameOver");
 	}
 
-	public void EnemyKilled() {
+	public void EnemyKilled(string name, string power) {
 		score += enemyKillBonus;
 		ghostVoices.volume += 0.1f;
 		player.ScoreAnimation (enemyKillBonus);
 		UpdateScore ();
+		PlayID (name, power);
 	}
 
 	public void AddScore(int amount, bool anim) {
@@ -88,6 +89,20 @@ public class GameController : MonoBehaviour {
 
 	void UpdateScore (){
 		scoreText.text = "Score: " + score;
+	}
+
+	void PlayID (string name, string power) {
+		IDName.text = "Employee Name: " + name;
+		if (power == "health") {
+			IDPower.text = "Harness their work energy! +5 health";
+			player.GainHealth (5);
+		} else if (power == "inv") {
+			IDPower.text = "You feel a wave of power and satisfaction creep over you...";
+			player.Invulnerability ();
+		} else {
+			IDPower.text = "Such a hard worker!";
+		}
+		IDAnimator.SetTrigger ("Play");
 	}
 }
 

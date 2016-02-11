@@ -7,6 +7,8 @@ TagManager:
   - Player
   - Edge
   - Enemy
+  - Faller
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - 
   - 
   - Ground
-  - 
-  - 
+  - TrapObject
+  - Enemy
   - 
   - 
   - 
