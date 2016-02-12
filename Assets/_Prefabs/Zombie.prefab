@@ -31,7 +31,6 @@ GameObject:
   - 61: {fileID: 6188582}
   - 114: {fileID: 11460214}
   - 95: {fileID: 9539600}
-  - 114: {fileID: 11480776}
   - 82: {fileID: 8269836}
   m_Layer: 10
   m_Name: Zombie
@@ -47,7 +46,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.35, y: 0.49, z: 0}
+  m_LocalPosition: {x: 59.9, y: 0.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 479336}
@@ -76,7 +75,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 30
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -243,21 +242,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentryRadius: 5
   speed: 3
+  chaseSpeed: 4
   attackStr: 10
   vision: {fileID: 479336}
   name: Sarah
   dropDown: 1
---- !u!114 &11480776
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0de6dd9a7c83c7c429af4defd5ebebaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &21257710
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -303,6 +292,10 @@ Prefab:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: b4520b903ad3340418a0f0a33808300f, type: 2}
+    - target: {fileID: 0}
+      propertyPath: chaseSpeed
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 181324}

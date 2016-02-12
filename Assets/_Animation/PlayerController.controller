@@ -13,7 +13,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -82,7 +82,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Walking
-  m_Speed: 10
+  m_Speed: 15
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110136054}
@@ -94,7 +94,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 2ddde2fe03da544fc9c732b94d16beaa, type: 2}
+  m_Motion: {fileID: 7400000, guid: 45df3afc9f7574a8fb5446cbfbfe4569, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -118,7 +118,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ed47c52999a0342cdb3151df52aec095, type: 2}
+  m_Motion: {fileID: 7400000, guid: 562435006c4b4482fbb1aea27377ba59, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

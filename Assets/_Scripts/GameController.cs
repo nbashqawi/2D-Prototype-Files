@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour {
 	public Text scoreText, IDName, IDPower;
 	public PlayerController player;
 	public AudioSource ghostVoices;
+	public Text lifeText;
 
 	private int score;
 	private int enemyKillBonus = -10;
@@ -73,6 +74,10 @@ public class GameController : MonoBehaviour {
 		HUDAnimator.SetTrigger ("GameOver");
 	}
 
+	public void Win() {
+		HUDAnimator.SetTrigger ("Win");
+	}
+
 	public void EnemyKilled(string name, string power) {
 		score += enemyKillBonus;
 		ghostVoices.volume += 0.1f;
@@ -103,6 +108,10 @@ public class GameController : MonoBehaviour {
 			IDPower.text = "Such a hard worker!";
 		}
 		IDAnimator.SetTrigger ("Play");
+	}
+
+	public void ShowLifes(int n) {
+		lifeText.text = "Lives: " + n;
 	}
 }
 

@@ -9,6 +9,9 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 	// Motion related variables
+	public int lifes = 3;
+	public Transform startSpawn;
+	public Camera cam;
 	public float max_Speed = 10f;    // Max player velocity
 	public float jump_Force = 500f;  // Force for player jumping
 	public LayerMask groundLayer;    // Mask describing what layers to check for as ground
@@ -50,10 +53,11 @@ public class PlayerController : MonoBehaviour {
 		player_RB = GetComponent<Rigidbody2D> ();
 		//groundCheck = transform.Find ("GroundCheck");
 		ceilingCheck = transform.Find ("CeilingCheck");
+		GameController.GetController().ShowLifes (lifes);
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 
 	/*	if (onGround == true)
 			Debug.Log ("Ground");
@@ -67,12 +71,12 @@ public class PlayerController : MonoBehaviour {
 		onGround = false;
 
 		h = Input.GetAxis ("Horizontal");
-		jump = Input.GetKey (KeyCode.Space);
+		jump = Input.GetKeyDown (KeyCode.Space);
 
 		// Check to see if player is on the ground
 		Collider2D[] colliders = Physics2D.OverlapCircleAll (groundCheck.position, groundRadius, groundLayer);
 		foreach (Collider2D col in colliders) {
-			if (col.gameObject != gameObject)
+			if (col.gameObject != gameObject && !col.isTrigger)
 				onGround = true;
 		}
 		anim.SetBool ("isWalking", h != 0);
@@ -99,6 +103,7 @@ public class PlayerController : MonoBehaviour {
 		// If player is on the ground and jump was trigger, make player jump --- TODO: play jump animation once we have it
 		if(onGround && jump) {
 			onGround = false;
+			jump = false;
 			player_RB.AddForce (new Vector2(0f, jump_Force));
 		}
 	}
@@ -133,7 +138,7 @@ public class PlayerController : MonoBehaviour {
 		if (coll.gameObject.CompareTag ("Faller")) {
 			if (noCanDieTime <= 0) {
 				TakeHit ();
-				Destroy (coll.gameObject);
+				//Destroy (coll.gameObject);
 			}
 		}
 	}
@@ -155,7 +160,17 @@ public class PlayerController : MonoBehaviour {
 		gc.ShowHealth (health);
 
 		if (health <= 0) {
-			gc.GameOver ();
+			lifes--;
+			if (lifes <= 0) {
+				gc.GameOver ();
+			} else {
+				health = maxHealth;
+				transform.position = startSpawn.position;
+				float offset = cam.GetComponent<CameraControl> ().offset.y;
+				cam.transform.position = new Vector3(transform.position.x, transform.position.y + offset, cam.transform.position.z);
+				gc.ShowHealth (health);
+				gc.ShowLifes (lifes);
+			}
 		}
 	}
 		
@@ -163,7 +178,6 @@ public class PlayerController : MonoBehaviour {
 		if( health + heal <= maxHealth ) {
 			health += heal;
 			GameController gc = GameController.GetController ();
-
 			gc.ShowHealth (health);
 		}
 	}

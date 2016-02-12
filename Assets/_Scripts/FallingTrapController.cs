@@ -15,17 +15,23 @@ public class FallingTrapController : MonoBehaviour {
 		trapCollider.size = new Vector2 (trapCollider.size.x, height);
 		spawner.localPosition = new Vector3 (0f, height, 0f);
 	}
-	
+
+	void Start() {
+		faller = (GameObject) Instantiate (faller, spawner.position, Quaternion.identity);
+		triggered = true;
+	}
+
 	void OnTriggerEnter2D (Collider2D other) {
-		if (other.gameObject.CompareTag ("Player") && triggered == false) {
-			faller = (GameObject) Instantiate (faller, spawner.position, Quaternion.identity);
-			triggered = true;
-		}
+//		if (other.gameObject.CompareTag ("Player") && triggered == false) {
+//			faller = (GameObject) Instantiate (faller, spawner.position, Quaternion.identity);
+//			triggered = true;
+//		}
 	}
 
 	void OnTriggerExit2D (Collider2D other) {
 		if (other.gameObject.CompareTag ("Faller")) {
-			Destroy (other.gameObject);
+			faller.transform.position = spawner.position;
+			faller.GetComponent<Rigidbody2D> ().velocity = new Vector2(faller.GetComponent<Rigidbody2D> ().velocity.x,0);
 		}
 	}
 }

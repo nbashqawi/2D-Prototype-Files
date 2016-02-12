@@ -5,10 +5,12 @@ using System.Collections;
 
 public class CameraControl : MonoBehaviour {
 
+	public Vector2 offset;
 	public PlayerController playerC; // Player
 	public Transform mapStart; // Beginning of map, don't move camera view to left of this point
 	public Transform mapTop; // Top of map, don't move camera view above this
 	private Transform cameraT; // The camera's transform
+
 	private Camera main; // variable for main camera instead of using Camera.main multiple times
 	private float posX, posY;
 	private float minx;
@@ -17,7 +19,7 @@ public class CameraControl : MonoBehaviour {
 	// Set camera initial position, speed, and other initialization
 	void Awake () {
 		cameraT = GetComponent<Transform> ();
-		cameraT.position = new Vector3(playerC.transform.position.x, playerC.transform.position.y, cameraT.position.z);
+		cameraT.position = new Vector3(playerC.transform.position.x+offset.x, playerC.transform.position.y+offset.y, cameraT.position.z);
 		main = Camera.main;
 		minx = mapStart.position.x;
 		speedX = 10.0f;

@@ -9,6 +9,7 @@ public class ZombieController : MonoBehaviour {
 	Rigidbody2D zRigBod;
 	public float sentryRadius; // How far zombie will march about sentry point on x axis
 	public float speed;        // Zombie speed
+	public float chaseSpeed;
 	private float sentryPos;   // Point about which zombie marches
 	private float dir;         // Variable for direction of zombie (1 is right, -1 is left)
 	public float attackStr = 10.0f; // Attack strength for dealing damage to player --- may make a range
@@ -83,7 +84,7 @@ public class ZombieController : MonoBehaviour {
 
 			// If zombie is not at an edge, move toward player. Otherwise, stop --- still working on this bit as well
 			if (!atEdge) {
-				zRigBod.velocity = new Vector2 (speed * dir, 0f); 
+				zRigBod.velocity = new Vector2 (chaseSpeed * dir, 0f); 
 			}
 			else {
 				zRigBod.velocity = new Vector2 (0f, 0f);
@@ -93,13 +94,19 @@ public class ZombieController : MonoBehaviour {
 
 	// If at the edge of a platform, stop and set atEdge to true --- Ive got work to do with this system too
 	void OnCollisionEnter2D (Collision2D col) {
-		if (col.collider.gameObject.CompareTag("Edge")) {
+		if (col.collider.gameObject.CompareTag("Edge") ) {
 			atEdge = true;
 			zRigBod.velocity = new Vector2 (0f, 0f);
 		}
+
 		if ((col.collider.gameObject.CompareTag("Obstacle") || col.collider.gameObject.CompareTag("Enemy")) && !isChasing) {
 			Flip ();
 		}
+	}
+
+	void OnTriggerEnter2D (Collider2D other) {
+		
+
 	}
 
 	public string[] DropOnDie() {
@@ -159,6 +166,7 @@ public class ZombieController : MonoBehaviour {
 		Vector3 lScale = transform.localScale;
 		lScale.x = -lScale.x;
 		transform.localScale = lScale;
+		transform.position = new Vector3 (transform.position.x + dir*0.2f, transform.position.y, transform.position.z);
 	}
 		
 }
